@@ -1,5 +1,26 @@
 {
   "nodes": {
+    "biri": {
+      "inputs": {
+        "nixpkgs": [
+          "garuda",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1790411458,
+        "narHash": "sha256-UGHOYRvxrBUr/i1tkLnGnddqAgXLbPSwWmRnYZuq13Y=",
+        "owner": "barrulus",
+        "repo": "biri",
+        "rev": "067d5ef7dd71ea4f220953b558a16f7204ca1fe4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "barrulus",
+        "repo": "biri",
+        "type": "github"
+      }
+    },
     "cachyos-settings": {
       "flake": false,
       "locked": {
@@ -319,9 +340,32 @@
         "type": "github"
       }
     },
+    "noctalia": {
+      "inputs": {
+        "nixpkgs": [
+          "garuda",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1790624248,
+        "narHash": "sha256-EKcAGmFQAqbA43z+UEVzyZ3h3mgn5BQRtq8q3WFJhzI=",
+        "owner": "noctalia-dev",
+        "repo": "noctalia",
+        "rev": "437239dfa8e202386b6b34c46d38cb7cf6f32d5a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "noctalia-dev",
+        "repo": "noctalia",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
-        "garuda": "garuda"
+        "biri": "biri",
+        "garuda": "garuda",
+        "noctalia": "noctalia"
       }
     },
     "treefmt-nix": {

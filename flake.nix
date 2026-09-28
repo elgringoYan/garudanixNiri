@@ -13,6 +13,16 @@
     # This input brings Nixpkgs, home-manager, Chaotic-Nyx via garuda.lib.garudaSystem.
     # There is no need to specify them separately unless you have a reason to do so.
     garuda.url = "gitlab:garuda-linux/garuda-nix-subsystem/stable";
+
+    biri = {
+      url = "github:barrulus/biri";
+      inputs.nixpkgs.follows = "garuda/nixpkgs";
+    };
+
+    noctalia = {
+      url = "github:noctalia-dev/noctalia";
+      inputs.nixpkgs.follows = "garuda/nixpkgs";
+    };
   };
 
   outputs =

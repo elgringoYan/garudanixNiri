@@ -21,6 +21,7 @@
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
+    ./biri.nix
   ];
 
   nixpkgs = {
@@ -89,6 +90,11 @@
   services.flatpak.enable = true;
   programs.appimage.enable = true;
   programs.appimage.binfmt = true;
+
+  garuda.excludes.defaultpackages.exclude = [
+    pkgs.firedragon-bin
+    pkgs.micro
+  ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "26.11";

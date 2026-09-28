@@ -4,6 +4,7 @@
 # via home-manager.users."<name>".)
 {
   pkgs, 
+  inputs,
   ...
 }:
 {
@@ -18,6 +19,7 @@
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
+#    inputs.noctalia.homeModules.default
   ];
 
   home = {
@@ -73,6 +75,12 @@
         "fr-CA,fr;q=0.9,en-CA;q=0.8,en;q=0.7";
     };
   };
+
+ programs.noctalia = {
+   enable = true;
+   settings = ./noctalia/config.toml;
+ };
+
 
   home.packages = with pkgs; [ 
     lazygit
