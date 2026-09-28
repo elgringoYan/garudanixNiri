@@ -25,7 +25,33 @@
   };
 
   # Add stuff for your user as you see fit:
-  # programs.neovim.enable = true;
+
+  programs.fish.enable = true;
+
+  programs.neovim = {
+    enable=true;
+    defaultEditor = true;
+
+    initLua = ''
+      vim.opt.shiftwidth = 2
+      vim.opt.tabstop = 2
+      vim.opt.softtabstop = 2
+      vim.opt.expandtab = true
+      '';
+  };
+
+  
+  home.shellAliases = {
+    vi = "nvim";
+    vim = "nvim";
+  };
+
+  programs.git.settings = {
+    user.name = "yan";
+    user.email = "ymcdonald@izayan.ca";
+    core.editor = "nvim";
+  };
+
   # home.packages = with pkgs; [ steam ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion

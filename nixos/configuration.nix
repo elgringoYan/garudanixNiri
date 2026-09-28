@@ -54,6 +54,7 @@
 
   # Use the CachyOS kernel (via chaotic-nyx).
   boot.kernelPackages = pkgs.linuxPackages_cachyos;
+  hardware.nvidia.package = pkgs.nvidia_cachyos;
 
   networking.hostName = "GarudaNix";
 
@@ -80,6 +81,7 @@
     isNormalUser = true;
     description = "Yanick";
     extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.fish;
   };
 
   home-manager.users."yan" = import ../home-manager/home.nix;
