@@ -81,6 +81,11 @@
    settings = ./noctalia/config.toml;
  };
 
+  xdg.configFile."biri/config.kdl".source =
+  ./biri/config.kdl;
+
+  xdg.configFile."biri/shaders".source = 
+  ./biri/shaders;
 
   home.packages = with pkgs; [ 
     lazygit
