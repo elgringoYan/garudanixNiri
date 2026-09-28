@@ -86,6 +86,10 @@
 
   home-manager.users."yan" = import ../home-manager/home.nix;
 
+  services.flatpak.enable = true;
+  programs.appimage.enable = true;
+  programs.appimage.binfmt = true;
+
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "26.11";
 }
