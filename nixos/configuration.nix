@@ -24,6 +24,11 @@
     ./biri.nix
   ];
 
+  nix.settings.trusted-users = [
+    "root"
+    "@wheel"
+  ];
+
   nixpkgs = {
     overlays = [
       # Add overlays your own flake exports (from overlays and pkgs dir):
@@ -94,6 +99,7 @@
   garuda.excludes.defaultpackages.exclude = [
     pkgs.firedragon-bin
     pkgs.micro
+    pkgs.fishPlugins.done
   ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
