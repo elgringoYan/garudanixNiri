@@ -26,7 +26,19 @@
     homeDirectory = "/home/yan";
   };
 
-  programs.fish.enable = true;
+  programs.fish = {
+    enable = true;
+
+    shellAliases = {
+      vi = "nvim";
+      vim = "nvim";
+    };
+  };
+
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+  };
 
   programs.neovim = {
     enable=true;
@@ -40,10 +52,6 @@
       '';
   };
   
-  home.shellAliases = {
-    vi = "nvim";
-    vim = "nvim";
-  };
 
   programs.git.settings = {
     user.name = "yan";
@@ -88,7 +96,7 @@
 
   home.packages = with pkgs; [ 
     lazygit
-    bitwarden-desktop
+    kde-rounded-corners
   ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion

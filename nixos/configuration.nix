@@ -44,7 +44,6 @@
   garuda.dr460nized.enable = true;
   garuda.gaming.enable = true;
   garuda.performance-tweaks.enable = true;
-  garuda.samba.enable = true;
   garuda.btrfs-maintenance.enable = true;
 
   # Hardware auto-detected with nixos-facter during installation.
@@ -82,6 +81,8 @@
   # Configure console keymap
   console.keyMap = "cf";
 
+  programs.fish.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users."yan" = {
     isNormalUser = true;
@@ -92,14 +93,22 @@
 
   home-manager.users."yan" = import ../home-manager/home.nix;
 
-  services.flatpak.enable = true;
+  garuda.flatpak.enable = true;
+
+  # S'assirer que le réseau soit démarré avant de démarrer flatpak
+  systemd.services.flatpak-add-flathub = {
+    wants = [ "network-online.target" ];
+    after = [ "network-online.target" ];
+  };
+
   programs.appimage.enable = true;
   programs.appimage.binfmt = true;
 
+  garuda.shell.enable = false;
+
   garuda.excludes.defaultpackages.exclude = [
-    pkgs.firedragon-bin
+#    pkgs.firedragon-bin
     pkgs.micro
-    pkgs.fishPlugins.done
   ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
