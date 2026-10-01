@@ -110,18 +110,12 @@
   garuda.excludes.defaultpackages.exclude = [
     pkgs.firedragon-bin
     pkgs.micro
+    pkgs.fishPlugins.done
   ];
 
-  'Réplication des modules qui sont déja enlevés par Garuda afin d'ajouter Discover à la liste
-  environment.plasma6.excludePackages = with pkgs.kdePackages; [
-    discover
-    elisa
-    khelpcenter
-    kwin-x11
-    oxygen
-    plasma-browser-integration
-    plasma-keyboard
-    qtvirtualkeyboard
+  # La 950 est la priorité de la liste, si on veut ajoute on doit avoir la même priorité
+  environment.plasma6.excludePackages = lib.mkOverride 950 [
+    pkgs.kdePackages.discover
   ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
