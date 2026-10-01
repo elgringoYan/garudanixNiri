@@ -3,6 +3,7 @@
 {
   inputs,
   pkgs,
+  lib,
   ...
 }:
 {
@@ -107,8 +108,20 @@
   garuda.shell.enable = false;
 
   garuda.excludes.defaultpackages.exclude = [
-#    pkgs.firedragon-bin
+    pkgs.firedragon-bin
     pkgs.micro
+  ];
+
+  'Réplication des modules qui sont déja enlevés par Garuda afin d'ajouter Discover à la liste
+  environment.plasma6.excludePackages = with pkgs.kdePackages; [
+    discover
+    elisa
+    khelpcenter
+    kwin-x11
+    oxygen
+    plasma-browser-integration
+    plasma-keyboard
+    qtvirtualkeyboard
   ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
